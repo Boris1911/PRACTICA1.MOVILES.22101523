@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -71,14 +72,61 @@ fun CarCard(car: Car) {
             .padding(vertical = 8.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            AsyncImage(
-                model = car.imageUrl,
-                contentDescription = "Imagen de ${car.marca} ${car.modelo}",
-                modifier = Modifier
-                    .height(200.dp)
-                    .fillMaxWidth(),
-                contentScale = ContentScale.Crop
-            )
+            if (car.modelo == "SF90 Stradale") {
+                Image(
+                    painter = painterResource(id = R.drawable.v1),
+                    contentDescription = "Imagen de ${car.marca} ${car.modelo}",
+                    modifier = Modifier
+                        .height(200.dp)
+                        .fillMaxWidth(),
+                    contentScale = ContentScale.Crop
+                )
+            } else if (car.modelo == "Aventador SVJ") {
+                Image(
+                    painter = painterResource(id = R.drawable.v2),
+                    contentDescription = "Imagen de ${car.marca} ${car.modelo}",
+                    modifier = Modifier
+                        .height(200.dp)
+                        .fillMaxWidth(),
+                    contentScale = ContentScale.Crop
+                )
+            } else if (car.modelo == "911 GT3 RS") {
+                Image(
+                    painter = painterResource(id = R.drawable.v3),
+                    contentDescription = "Imagen de ${car.marca} ${car.modelo}",
+                    modifier = Modifier
+                        .height(200.dp)
+                        .fillMaxWidth(),
+                    contentScale = ContentScale.Crop
+                )
+            } else if (car.modelo == "720S") {
+                Image(
+                    painter = painterResource(id = R.drawable.v4),
+                    contentDescription = "Imagen de ${car.marca} ${car.modelo}",
+                    modifier = Modifier
+                        .height(200.dp)
+                        .fillMaxWidth(),
+                    contentScale = ContentScale.Crop
+                )
+            } else if (car.modelo == "Chiron") {
+                Image(
+                    painter = painterResource(id = R.drawable.v5),
+                    contentDescription = "Imagen de ${car.marca} ${car.modelo}",
+                    modifier = Modifier
+                        .height(200.dp)
+                        .fillMaxWidth(),
+                    contentScale = ContentScale.Crop
+                )
+            } else {
+                AsyncImage(
+                    model = car.imageUrl,
+                    contentDescription = "Imagen de ${car.marca} ${car.modelo}",
+                    modifier = Modifier
+                        .height(200.dp)
+                        .fillMaxWidth(),
+                    contentScale = ContentScale.Crop
+                )
+            }
             Spacer(modifier = Modifier.height(8.dp))
             Text(text = "${car.marca} ${car.modelo}", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             Text(text = String.format("Precio: $%,.2f", car.precio), fontSize = 16.sp)
